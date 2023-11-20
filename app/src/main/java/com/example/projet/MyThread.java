@@ -12,7 +12,7 @@ public class MyThread extends Thread {
     private DatagramSocket UDPSocket;
     private InetAddress address;
     private final int port=10000;
-    public MyThread(BlockingQueue<String> queue, UdpClient udpClient) {
+    public MyThread(BlockingQueue<String> queue) {
         this.queue = queue;
         try {
             UDPSocket = new DatagramSocket();

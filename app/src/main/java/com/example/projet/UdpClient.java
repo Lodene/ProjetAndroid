@@ -2,11 +2,8 @@ package com.example.projet;
 import android.app.Activity;
 import android.util.Log;
 
-import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 
 public class UdpClient {
     private DatagramSocket udpSocket;
@@ -21,20 +18,8 @@ public class UdpClient {
         buffer = new byte[1024];
     }
 
-    public void sendMessage(String message) {
-        try {
-            byte[] data = message.getBytes();
-
-            InetAddress serverAddress = InetAddress.getByName("192.168.242.233"); // Convertir la chaîne en InetAddress
-            int serverPort = 10000; // Convertir la chaîne en int
-
-            DatagramPacket packet = new DatagramPacket(data, data.length, serverAddress, serverPort);
-            udpSocket.send(packet);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void sendMessage(String command) {
     }
-
 
 
     public interface OnDataReceivedListener {
@@ -43,7 +28,7 @@ public class UdpClient {
 
     public void startListening() {
         try {
-            udpSocket = new DatagramSocket(12345);  // Le port doit correspondre au port de la passerelle
+            udpSocket = new DatagramSocket(10000);  // Le port doit correspondre au port de la passerelle
             while (true) {
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
                 udpSocket.receive(packet);
@@ -58,6 +43,16 @@ public class UdpClient {
                         }
                     });
                 }
+
+                Log.d("UdpClient", "Received data: " + data);
+                Log.d("UdpClient", "Received data: " + data);
+                Log.d("UdpClient", "Received data: " + data);
+                Log.d("UdpClient", "Received data: " + data);
+                Log.d("UdpClient", "Received data: " + data);
+                Log.d("UdpClient", "Received data: " + data);
+                Log.d("UdpClient", "Received data: " + data);
+                Log.d("UdpClient", "Received data: " + data);
+                Log.d("UdpClient", "Received data: " + data);
                 Log.d("UdpClient", "Received data: " + data);
             }
         } catch (Exception e) {

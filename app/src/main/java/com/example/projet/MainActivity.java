@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements UdpClient.OnDataR
 
         bt = findViewById(R.id.sendButton);
         ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<>(10);
-        MyThread thread = new MyThread(queue, udpClient);
+        MyThread thread = new MyThread(queue);
         thread.start();
 
         bt.setOnClickListener(new View.OnClickListener(){
